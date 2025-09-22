@@ -640,7 +640,7 @@ function addInitialMessage() {
 	const wrapper = document.getElementById('chatContainer').querySelector('.message-wrapper');
 	wrapper.innerHTML = `
 		<div class="initial-container">
-			<img src="https://i.ibb.co/xKpq7tcF/TOHIDAI.jpg" class="initial-avatar">
+			<img src="https://i.imgur.com/WnKjrJt.jpeg" class="initial-avatar">
 			<div class="message ai initial-message">
 				<div class="message-content">
 						<br><br>
