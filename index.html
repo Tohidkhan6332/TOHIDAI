@@ -1,0 +1,142 @@
+<!DOCTYPE html><html oncontextmenu="return isDesktop() ? false : true;" onselectstart="return true" ondragstart="return false" lang="en"><head>
+	<link rel="icon" type="image/x-icon" href="images/TOHIDAI.jpg">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="TOHID AI TECH🧐">
+	<meta name="keywords" content="AI Assistant, Technology, Programming Help">
+	<meta property="og:image" content="images/TOHIDAI.jpg">
+	<script src="js/marked.min.js"></script>
+	<script src="js/purify.min.js"></script>
+	<script src="js/highlight.min.js"></script>
+	<link rel="stylesheet" href="css/github-dark.min.css">
+	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="css/style.css" <title=""></head><body>TOHID AI Assistant 🧐
+
+
+   <div class="notification-panel" id="notificationPanel">
+		<div class="notification-panel-header">
+			<h3>🔔 Notifications</h3>
+			<button class="close-btn" onclick="hideNotificationPanel()">×</button>
+		</div>
+		<div class="notification-list"></div>
+	</div>
+	 <header class="main-header">
+			<div class="header-left">
+			   <div class="logo-container">
+					 TOHID AI
+					<img src="images/TOHIDAI.jpg" class="header-avatar" alt="AI Avatar">
+				</div>
+			
+			</div>
+			<div class="header-right">
+				<button class="dropdown-btn" onclick="toggleDropdown()">
+					<i class="fas fa-box"></i>
+				</button>
+			   <button class="notification-btn" onclick="toggleNotificationPanel()">
+					<i class="fas fa-bell"></i>
+					<span class="notification-badge">0</span>
+				</button>
+			</div>
+			
+<div class="dropdown-content" id="modelDropdown">
+	<div class="model-item" data-model="llama" data-endpoint="https://ab-llama-ai.abrahamdw882.workers.dev/?q=">🦙 Llama Model</div>
+	<div class="model-item" data-model="gemini" data-endpoint="https://gemini.abrahamdw882.workers.dev/?q=">✨ Gemini Model</div>
+	<div class="model-item" data-model="default" data-endpoint="https://ab-techiai.abrahamdw882.workers.dev/">🤖 Default AI</div>
+</div>
+		</header>
+	<button class="menu-toggle" onclick="toggleSidebar()">☰<span class="blue-dot"></span></button>
+	
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-header">
+			<button class="new-chat-btn" onclick="createNewConversation()">New Chat</button>
+			<button class="logout-btn" onclick="logout()">Logout</button>
+		</div>
+		<div class="conversation-list" id="conversationList"></div>
+	</div>
+
+	<div class="chat-container" id="chatContainer">
+		<div class="message-wrapper"></div>
+	</div>
+	 <div class="disclaimer">
+		TOHID AI Can Make mistakes. Join My Channel <a href="https://whatsapp.com/channel/0029VaGyP933bbVC7G0x0i2T"> Click here</a> 
+	</div>
+	<div class="input-container">
+		<div class="input-wrapper">
+			<div class="image-previews" id="imagePreviews"></div>
+			<div class="input-group">
+				<button class="ai-button" onclick="openImageGenerator()">
+					<i class="fas fa-star"></i>
+				</button>
+				<button class="attachment-btn" id="voiceAssistantBtn">
+					<i class="fas fa-microphone"></i>
+				</button>
+				<input type="file" id="imageUpload" multiple="" accept="image/*" style="display: none;">
+				<textarea id="userInput" placeholder="Ask me anything..." rows="1"></textarea>
+				<div class="actions-right">
+					<button class="attachment-btn" onclick="document.getElementById('imageUpload').click()">
+						<i class="fas fa-paperclip"></i>
+					</button>
+					<button class="send-btn" onclick="sendMessage()">
+						<i class="fas fa-arrow-up"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	   
+	<div id="confirmationModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeConfirmation()">×</span>
+		<h3>Generate AI Image?</h3>
+		<p>This will open the AI image generator. Continue?</p>
+		<div class="modal-buttons">
+			<button onclick="proceedToGenerate()">Yes</button>
+			<button onclick="closeConfirmation()">No</button>
+		</div>
+	</div>
+</div>
+<div id="voiceModal" class="modal">
+	<div class="modal-content" style="max-width: 400px;">
+		<span class="close" onclick="closeVoiceModal()">×</span>
+		<h3 style="margin-bottom: 1rem; text-align: center;">Voice Assistant</h3>
+		<div style="text-align: center;">
+			<button id="micBtn" class="mic-button">
+				<i class="fas fa-microphone"></i>
+			</button>
+			<div class="status-indicator">
+				<span id="status">Ready to interact</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <div id="imageModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeModal()">×</span>
+		<h3>Generate Image</h3>
+		<div class="input-group">
+			<input type="text" id="promptInput" placeholder="Describe the image you want to generate...">
+			<button onclick="generateImage()" id="generateButton">Generate</button>
+		</div>
+		<div id="loader" class="loader" style="display: none;"></div>
+		<div id="imageContainer">
+			<img id="generatedImage" style="display: none;">
+			<button id="downloadButton" style="display: none;" onclick="downloadImage()">Download</button>
+		</div>
+		<div id="error" class="error-message"></div>
+	</div>
+</div> 
+	<script src="js/23-ab-script.js">
+	</script>
+
+	 <script>
+	  function isDesktop() {
+		return window.innerWidth > 768; 
+	  }
+	</script>
+	<div id="overlay"></div>
+
+
+</body></html>
